@@ -1,0 +1,10 @@
+.wrapper {
+  width: 100vw;
+}
+
+.main-section {
+  height: 100%;
+  display: flex;
+  gap: 24px;
+  padding: 32px 20px;
+}

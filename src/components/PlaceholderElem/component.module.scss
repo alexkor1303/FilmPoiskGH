@@ -1,0 +1,39 @@
+.wrapper {
+  display: grid;
+  gap: 4px;
+  width: 360px;
+  margin-bottom: 16px;
+}
+.placeholder {
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+  .dropDownBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--unactive-gray-dark);
+    padding: 2px;
+    border-radius: 8px;
+    .arrow {
+      transition: 0.3s;
+    }
+  }
+}
+.unActive {
+  border: 1px solid var(--unactive-gray-light);
+  color: var(--unactive-gray-dark);
+}
+.active {
+  border: 1px solid var(--orange);
+  .arrow {
+    transform: rotate(45deg);
+  }
+}

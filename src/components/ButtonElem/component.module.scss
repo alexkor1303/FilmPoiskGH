@@ -1,0 +1,24 @@
+.button {
+  width: 72px;
+  padding: 16px 8px;
+  border-radius: 8px;
+  text-align: center;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  transition-duration: 0.2s;
+}
+.filled {
+  background-color: var(--orange);
+  cursor: pointer;
+  &:hover {
+    background-color: var(--orange-dark);
+  }
+}
+
+.transparent {
+  background-color: none;
+  border: 1px solid var(--orange);
+  color: var(--orange);
+}
