@@ -1,4 +1,4 @@
-import { WhiteBlock } from "..";
+import { FilmPoster, WhiteBlock, FilmInfo, FilmRating } from "..";
 import style from "./component.module.scss";
 
 interface FilmProps {
@@ -21,16 +21,20 @@ export const Film = ({
   return (
     <WhiteBlock>
       <div className={style.wrapper}>
-        <section>
-          <img src="" alt={poster} />
-        </section>
-        <section>
-          <h3>{title}</h3>
-          <p>{`Жанр :  ${genre}`}</p>
-          <p>{`Год :  ${year}`}</p>
-          <p>{`Описание :  ${description}`}</p>
-        </section>
-        <section>тут звезды{rating}</section>
+        <div className={style.poster}>
+          <FilmPoster path={poster} />
+        </div>
+        <div className={style.filmInfo}>
+          <FilmInfo
+            title={title}
+            genre={genre}
+            year={year}
+            description={description}
+          />
+        </div>
+        <div className={style.rating}>
+          <FilmRating rating={rating} />
+        </div>
       </div>
     </WhiteBlock>
   );

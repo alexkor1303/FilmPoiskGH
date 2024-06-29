@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Film } from "../index";
 import style from "./component.module.scss";
+
 type FilmType = {
   poster: string;
   title: string;
@@ -9,21 +10,34 @@ type FilmType = {
   description: string;
   rating: string;
 };
+
 interface FilmListProps {
   year: string;
   genre: string;
+  searchValue: string;
+  page: number;
 }
-export const FilmsList = ({ year, genre }: FilmListProps) => {
+export const FilmsList = ({
+  year,
+  genre,
+  page,
+  searchValue,
+}: FilmListProps) => {
   const [films, setFilms] = useState<FilmType[]>([]);
+
   useEffect(() => {
-    console.log(year);
+    const titleRout = searchValue !== "" ? `title=${searchValue}` : "";
+    const pageRout = page === 1 ? "" : `&page=${page}`;
+    const genreRout = genre !== "" && genre !== "0" ? `&genre=${genre}` : "";
+    const release_yearRout =
+      year !== "" && year !== "0" ? `&release_year=${year}` : "";
+
     const getFilms = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3030/api/v1/search?${
-            year !== "" && year !== "0" ? `release_year=${year}` : ""
-          }&${genre !== "" && genre !== "0" ? `genre=${genre}` : ""}`
+          `http://localhost:3030/api/v1/search?${titleRout}${pageRout}${genreRout}${release_yearRout}`
         );
+
         const data = await response.json();
         if (data.search_result) {
           setFilms(data.search_result);
@@ -35,13 +49,14 @@ export const FilmsList = ({ year, genre }: FilmListProps) => {
       }
     };
     getFilms();
-  }, [year, genre]);
+  }, [year, genre, page, searchValue]);
 
   return (
     <div className={style.wrapper}>
       {films.map((film) => (
         <Film
           key={film.title}
+          poster={film.poster}
           title={film.title}
           genre={film.genre}
           year={film.release_year}

@@ -1,4 +1,6 @@
 import { ChangeEvent } from "react";
+import clearIcon from "../../icons/clear.svg";
+import lenseIcon from "../../icons/lense.svg";
 import style from "./component.module.scss";
 
 interface SearchProps {
@@ -13,7 +15,7 @@ export const Search = ({ searchValue, setSearchValue }: SearchProps) => {
 
   return (
     <div className={style.wrapper}>
-      <p className={style.icon}>q</p>
+      <img src={lenseIcon} alt="lense" className={style.icon} />
       <input
         className={style.input}
         placeholder="Название фильма"
@@ -21,9 +23,12 @@ export const Search = ({ searchValue, setSearchValue }: SearchProps) => {
         onChange={handleChange}
       />
       {searchValue && (
-        <p onClick={() => setSearchValue("")} className={style.closeIcon}>
-          q
-        </p>
+        <img
+          onClick={() => setSearchValue("")}
+          className={style.closeIcon}
+          src={clearIcon}
+          alt="clear"
+        />
       )}
     </div>
   );

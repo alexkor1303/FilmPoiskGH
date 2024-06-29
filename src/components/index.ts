@@ -6,3 +6,7 @@ export * from "./WhiteBlock/component";
 export * from "./Search/component";
 export * from "./Film/component";
 export * from "./FilmsList/component";
+export * from "./FilmPoster/component";
+export * from "./FilmInfo/component";
+export * from "./FilmRating/component";
+export * from "./Pagination/component";

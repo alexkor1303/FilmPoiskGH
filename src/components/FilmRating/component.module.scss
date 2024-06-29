@@ -1,0 +1,15 @@
+.ratingContainer {
+  display: flex;
+}
+.star {
+  width: 16px;
+}
+
+.filled {
+  background-size: contain;
+  background-color: orange;
+}
+
+.isEditable {
+  background-color: gray;
+}
