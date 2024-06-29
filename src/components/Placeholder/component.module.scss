@@ -1,0 +1,75 @@
+.wrapper {
+  display: grid;
+  gap: 4px;
+  width: 360px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.placeholder {
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  border-radius: 8px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.activeInnerTitle {
+  color: black;
+}
+
+.dropDownBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--unactive-gray-dark);
+  padding: 2px;
+  border-radius: 8px;
+  .arrow {
+    transition: 0.5s;
+  }
+}
+
+.unActive {
+  border: 1px solid var(--unactive-gray-light);
+  color: var(--unactive-gray-dark);
+}
+
+.active {
+  border: 1px solid var(--orange);
+  .arrow {
+    transform: rotate(45deg);
+  }
+}
+.activeTitle {
+  color: black;
+}
+.activeList {
+  width: 100%;
+  height: 228px;
+  overflow: scroll;
+  border-radius: 8px;
+  box-shadow: 0 11px 12px 0 rgba(0, 0, 0, 0.2);
+}
+ul {
+  padding: 8px;
+  list-style: none;
+  li {
+    height: 42px;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s, border-radius 0.3s;
+
+    &:hover {
+      border-radius: 8px;
+      background-color: #fafafa;
+    }
+  }
+}

@@ -6,7 +6,7 @@ interface ButtonElemProps {
   //   style: string;
   //   isActive: boolean;
 }
-export const ButtonElem = ({ text }: ButtonElemProps) => {
+export const Button = ({ text }: ButtonElemProps) => {
   return (
     <div className={cn(style.container)}>
       <button className={cn(style.button, style.filled)}>{text}</button>
