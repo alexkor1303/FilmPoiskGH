@@ -1,30 +1,26 @@
-import { Filter, Search, FilmsList, Pagination } from "./components";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { FilmPage } from "./pages/FilmPage/component";
+import { Home } from "./pages/HomePage/component";
+import { Layout } from "./components/Layout/component";
 
-import "./App.css";
-import { useState } from "react";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+        errorElement: <h1>Server is dead! :c</h1>,
+      },
+      {
+        path: "film/:id",
+        element: <FilmPage />,
+      },
+    ],
+  },
+]);
 
-function App() {
-  const [searchValue, setSearchValue] = useState("");
-  const [genre, setGenre] = useState("");
-  const [year, setYear] = useState("");
-  const [page, setPage] = useState(1);
-  return (
-    <div className="wrapper">
-      <div className="main-section">
-        <Filter title="Фильтр" setYear={setYear} setGenre={setGenre} />
-        <div className="filmsSection">
-          <Search searchValue={searchValue} setSearchValue={setSearchValue} />
-          <FilmsList
-            year={year}
-            genre={genre}
-            page={page}
-            searchValue={searchValue}
-          />
-          <Pagination page={page} setPage={setPage} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default App;
+export const App = () => {
+  return <RouterProvider router={router} />;
+};
