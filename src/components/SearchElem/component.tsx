@@ -22,12 +22,14 @@ export const Search = () => {
 
   return (
     <div className={classNames(styles.wrapper)}>
-      <img
-        src={closeIcon}
-        alt="delete"
-        className={styles.closeIcon}
-        onClick={() => setTitleNow("")}
-      />
+      {titleNow && (
+        <img
+          src={closeIcon}
+          alt="delete"
+          className={styles.closeIcon}
+          onClick={() => setTitleNow("")}
+        />
+      )}
       <input
         placeholder="Название фильма"
         className={classNames(styles.input)}
